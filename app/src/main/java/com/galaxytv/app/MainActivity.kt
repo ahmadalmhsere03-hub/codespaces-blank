@@ -288,7 +288,6 @@ private fun HomeScreen(
             )
         }
 
-        LiveRail(onPlay = { onPlay(programs.first()) })
         Spacer(Modifier.height(8.dp))
     }
 }
@@ -511,6 +510,9 @@ private fun LiveRail(onPlay: () -> Unit) {
 
 @Composable
 private fun LiveScreen(modifier: Modifier, onPlay: () -> Unit) {
+    // تشغيل القناة الأولى تلقائياً عند فتح قسم القنوات
+    onPlay(programs.first())
+    
     Column(
         modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(top = 28.dp),
         verticalArrangement = Arrangement.spacedBy(22.dp),
